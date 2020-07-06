@@ -436,6 +436,9 @@ ul.varUL{
 #memory table{
     font-size: 0.9em;
 }
+#middle{
+    height: 100%!important;
+}
 
 /* Make refresh icon spin - http://www.bootply.com/128062*/
 .glyphicon-refresh-animate {

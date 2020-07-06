@@ -58,38 +58,22 @@ class Gdbgui extends React.PureComponent {
   render() {
     return (
       <div className="splitjs_container">
-        <TopBar initial_user_input={initial_data.initial_binary_and_args} />
+        
 
-        <div id="middle" style={{ paddingTop: "60px" }}>
+        <div id="middle">
           <div id="folders_view" className="content" style={{ backgroundColor: "#333" }}>
             <FoldersView />
           </div>
-
+         
           <div id="source_code_view" className="content">
+           <TopBar initial_user_input={initial_data.initial_binary_and_args} />
             <MiddleLeft />
-          </div>
-
-          <div id="controls_sidebar" className="content" style={{ overflowX: "visible" }}>
-            <RightSidebar signals={initial_data.signals} debug={debug} />
-          </div>
-        </div>
-
-        <div
+               <div
           id="bottom"
           className="split split-horizontal"
           style={{ width: "100%", height: "100%" }}
         >
-          <ToolTipTourguide
-            step_num={4}
-            position={"topleft"}
-            content={
-              <div>
-                <h5>You can view gdb's output here.</h5>
-                You usually don't need to enter commands here, but you have the option to
-                if there is something you can't do in the UI.
-              </div>
-            }
-          />
+          
 
           <div
             id="bottom_content"
@@ -117,6 +101,16 @@ class Gdbgui extends React.PureComponent {
             store.set("textarea_to_copy_to_clipboard", node);
           }}
         />
+         
+          </div>
+
+          
+          <div id="controls_sidebar" className="content" style={{ overflowX: "visible" }}>
+            <RightSidebar signals={initial_data.signals} debug={debug} />
+          </div>
+        </div>
+
+    
       </div>
     );
   }
@@ -136,7 +130,7 @@ class Gdbgui extends React.PureComponent {
       }
     );
 
-    Split(["#middle", "#bottom"], {
+    Split(["#middle"], {
       gutterSize: 8,
       cursor: "row-resize",
       direction: "vertical", // vertical makes a top and bottom pane, and a divider running horizontally
